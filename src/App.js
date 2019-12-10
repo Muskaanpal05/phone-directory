@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import Header from './Header.js';
-import './ShowSubscribers.css';
-import { Link } from 'react-router-dom';
-class ShowSubscribers extends Component {
-
+import './App.css';
+class App extends Component {
   render() {
-  
+    let subscribers = [
+      {
+        id: 1,
+        name: "Shilpa Bhat",
+        phone: "8888888888"
+      },
+      {
+        id: 2,
+        name: "Srishti Gupta",
+        phone: "9999999999"
+      }
+    ];
+
     return (
         <div>
           <Header heading="Phone Directory" />
         <div className="component-body-container">
-        <Link to="/add">
-            <button className="custom-btn add-btn">Add</button>
-          </Link>
+          <button className="custom-btn add-btn">Add</button>
 
           <div className="grid-container heading-container">
             <span className="grid-item name-heading">Name</span>
@@ -20,7 +28,7 @@ class ShowSubscribers extends Component {
 
           </div>
           {
-            this.props.subscribersList.map(sub => {
+            subscribers.map(sub => {
               return <div key={sub.id} className="grid-container">
                 <span className="grid-item">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
@@ -37,4 +45,4 @@ class ShowSubscribers extends Component {
 
 }
 
-export default ShowSubscribers;
+export default App;
